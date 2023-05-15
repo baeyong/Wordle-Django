@@ -1,0 +1,74 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'game.css' %}">
+
+<div id="complete">
+
+<div id='status'>
+{{ status }}
+</div>
+
+
+{% block content %} 
+
+<table>
+    <tr>
+        <td id="{{colors.0.0}}">{{guesses.0.0}}</td>
+        <td id="{{colors.0.1}}">{{guesses.0.1}}</td>
+        <td id="{{colors.0.2}}">{{guesses.0.2}}</td>
+        <td id="{{colors.0.3}}">{{guesses.0.3}}</td>
+        <td id="{{colors.0.4}}">{{guesses.0.4}}</td>
+    </tr>
+    <tr>
+        <td id="{{colors.1.0}}">{{guesses.1.0}}</td>
+        <td id="{{colors.1.1}}">{{guesses.1.1}}</td>
+        <td id="{{colors.1.2}}">{{guesses.1.2}}</td>
+        <td id="{{colors.1.3}}">{{guesses.1.3}}</td>
+        <td id="{{colors.1.4}}">{{guesses.1.4}}</td>
+    </tr>
+    <tr>
+        <td id="{{colors.2.0}}">{{guesses.2.0}}</td>
+        <td id="{{colors.2.1}}">{{guesses.2.1}}</td>
+        <td id="{{colors.2.2}}">{{guesses.2.2}}</td>
+        <td id="{{colors.2.3}}">{{guesses.2.3}}</td>
+        <td id="{{colors.2.4}}">{{guesses.2.4}}</td>
+    </tr>
+    <tr>
+        <td id="{{colors.3.0}}">{{guesses.3.0}}</td>
+        <td id="{{colors.3.1}}">{{guesses.3.1}}</td>
+        <td id="{{colors.3.2}}">{{guesses.3.2}}</td>
+        <td id="{{colors.3.3}}">{{guesses.3.3}}</td>
+        <td id="{{colors.3.4}}">{{guesses.3.4}}</td>
+    </tr>
+    <tr>
+        <td id="{{colors.4.0}}">{{guesses.4.0}}</td>
+        <td id="{{colors.4.1}}">{{guesses.4.1}}</td>
+        <td id="{{colors.4.2}}">{{guesses.4.2}}</td>
+        <td id="{{colors.4.3}}">{{guesses.4.3}}</td>
+        <td id="{{colors.4.4}}">{{guesses.4.4}}</td>
+    </tr>
+    <tr>
+        <td id="{{colors.5.0}}">{{guesses.5.0}}</td>
+        <td id="{{colors.5.1}}">{{guesses.5.1}}</td>
+        <td id="{{colors.5.2}}">{{guesses.5.2}}</td>
+        <td id="{{colors.5.3}}">{{guesses.5.3}}</td>
+        <td id="{{colors.5.4}}">{{guesses.5.4}}</td>
+    </tr>
+</table>
+
+<div id="guess">
+    <form method='post' action="guess">
+        {% csrf_token %}
+        <input type="text" name="guess_text" label="Guess:" max_length="5">
+        <button type="submit" name="guess">Submit</button>
+        <input type="hidden" name="target" value="{{target}}">
+        <input type="hidden" name="guesses" value="{{guesses}}">
+        <input type="hidden" name="colors" value="{{colors}}">
+    </form>
+</div>
+
+</div>
+
+
+
+{% endblock %} 
+

@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'start.css' %}">
+
+<div id="message">
+{{ status }}
+</div>
+
+<div id="start">
+{% block content %}
+<form method='POST' action="">
+    {% csrf_token %}
+    <input type="text" name="target_text" label="New Target" max_length="5">
+    <button type="submit" name="target">Submit</button>
+</form>
+{% endblock %}
+</div>
+
+
+
+
+
+
+
+
+
